@@ -1,0 +1,42 @@
+.datasheet{
+  width: 100%;
+  border-collapse: collapse;
+  color: #EEEEEE;
+}
+
+th{
+  font-weight: 500;
+  color: #00ADB5;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #393E46;
+}
+
+td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #2C3333;
+}
+
+
+.datasheet tr:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+.colorCell {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+  padding-left: 4px;
+}
+.noBand{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.colorBox {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  margin-right: 4px;
+}
