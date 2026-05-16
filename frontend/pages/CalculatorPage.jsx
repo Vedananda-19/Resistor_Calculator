@@ -121,6 +121,7 @@ function CalculatorPage() {
                                     selectedBand={selectedBand}
                                     bandColors={bandColors}
                                     setBandColors={setBandColors}
+                                    setIsSaved = {setIsSaved}
                                 />
                             </div>
                         </div>
