@@ -11,7 +11,7 @@ const router = createBrowserRouter([
         path : "/history",
         element : <HistoryPage />
     }
-])
+],{basename:"/Resistor_Calculator"})
 
 function App(){
     return (
