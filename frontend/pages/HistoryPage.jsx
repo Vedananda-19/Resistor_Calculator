@@ -10,7 +10,7 @@ function HistoryPage() {
     const navigate = useNavigate();
     async function getBands() {
         try {
-            const response = await fetch("http://127.0.0.1:5000/get-bands");
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/get-bands`);
             const data = await response.json();
             setHistoryList(data);
             console.log(data);

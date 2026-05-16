@@ -37,7 +37,7 @@ function CalculatorPage() {
             const bandData = { ...bandColors };
             try {
                 const response = await fetch(
-                    "http://127.0.0.1:5000/save-band",
+                    `${import.meta.env.VITE_API_URL}/save-band`,
                     {
                         method: "POST",
                         headers: { "Content-type": "application/json" },
