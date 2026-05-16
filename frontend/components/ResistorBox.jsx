@@ -1,7 +1,7 @@
 import ResistorSVG from "../src/Resistor_4.svg?react"
 import {useState} from "react"
 
-function ResistorBox({bandColors,selectedBand,setSelectedBand}){
+function ResistorBox({bandColors,selectedBand,setSelectedBand,isHistoryBand}){
     const handleEvent = (e) => {
         const id = e.target.id
         if(id in bandColors) setSelectedBand(id)
@@ -13,7 +13,7 @@ function ResistorBox({bandColors,selectedBand,setSelectedBand}){
             viewBox="0 0 147.31989 34.898048"
             preserveAspectRatio="xMidYMid meet"
             id="svg1"
-            onClick={(e) => handleEvent(e)}
+            onClick={(e) => {!isHistoryBand && handleEvent(e)}}
             >
             <g
                 id="layer1"
@@ -120,7 +120,7 @@ function ResistorBox({bandColors,selectedBand,setSelectedBand}){
 
                 <path
                 style={{
-                    fill: bandColors["band5"],
+                    fill: bandColors["band5"]!=="colourless" ? bandColors["band5"] : "transparent", 
                     fillOpacity: 1,
                     stroke: selectedBand==="band5" ? "#00ADB5" : "none",
                     strokeWidth: 1.165,
@@ -150,7 +150,7 @@ function ResistorBox({bandColors,selectedBand,setSelectedBand}){
 
                 <rect
                 style={{
-                    fill: bandColors["band4"] ? bandColors["band4"] : "none",
+                    fill: bandColors["band4"] ? bandColors["band4"] : "transparent",
                     fillOpacity: 1,
                     stroke: selectedBand==="band4" ? "#00ADB5" : "none",
                     strokeWidth: 1.165,
