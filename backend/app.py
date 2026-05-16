@@ -8,17 +8,25 @@ CORS(app)
 
 client = MongoClient(os.getenv("MONGO_URI"))
 history = client["resistors"]["history"]
-history.insert_one({"bandColors": {
-    "band1": "red",
-    "band2": "red",
-    "band3": "red",
-    "band4": "red",
-    "band5": "gold"
-  },"index":1})
+
 
 @app.route("/")
 def home():
-    return history.find()
+    return "Hello World"
+
+@app.route("/test-db")
+def test_db():
+    history.insert_one({
+        "bandColors": {
+            "band1": "red",
+            "band2": "red",
+            "band3": "red",
+            "band4": "red",
+            "band5": "gold"
+        },
+        "index": 1
+    })
+    return jsonify({"message": "Test document inserted"})
 
 @app.route("/save-band",methods=["POST"])
 def saveBand():
