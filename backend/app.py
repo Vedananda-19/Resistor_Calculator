@@ -12,21 +12,27 @@ history = client["resistors"]["history"]
 
 @app.route("/")
 def home():
-    return "Hello World"
+    try:
+        # Test the connection
+        client.admin.command("ping")
 
-@app.route("/test-db")
-def test_db():
-    history.insert_one({
-        "bandColors": {
-            "band1": "red",
-            "band2": "red",
-            "band3": "red",
-            "band4": "red",
-            "band5": "gold"
-        },
-        "index": 1
-    })
-    return jsonify({"message": "Test document inserted"})
+        # Access database and collection
+        history = client["resistors"]["history"]
+
+        # Insert a test document
+        history.insert_one({"test": "working"})
+
+        return jsonify({
+            "status": "success",
+            "message": "MongoDB Atlas is connected!"
+        })
+
+    except Exception as e:
+        return jsonify({
+            "status": "error",
+            "message": str(e)
+        }), 500
+
 
 @app.route("/save-band",methods=["POST"])
 def saveBand():
