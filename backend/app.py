@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-client = MongoClient("mongodb://localhost:27017/")
+client = MongoClient(os.getenv("MONGO_URI"))
 history = client["resistors"]["history"]
 
 @app.route("/") 
