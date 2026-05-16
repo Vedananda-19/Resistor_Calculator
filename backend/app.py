@@ -1,6 +1,6 @@
 from flask import Flask,request,jsonify
 from flask_cors import CORS
-from pymongo import MongoClient,ASCENDING,DESCENDING
+from pymongo import MongoClient,ASCENDING
 import os
 
 app = Flask(__name__)
@@ -8,7 +8,6 @@ CORS(app)
 
 client = MongoClient("mongodb://localhost:27017/")
 history = client["resistors"]["history"]
-
 
 @app.route("/") 
 def home():
