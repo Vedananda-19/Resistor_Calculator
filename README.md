@@ -22,7 +22,7 @@ This project was built using:
 
 These are the main technologies I used to build and deploy this project.
 
-## 📸 Webpage & Code Snippets
+## Webpage & Code Snippets
 
 ### Calculator Page
 ![Calculator Page](./screenshots/calculator.png)
