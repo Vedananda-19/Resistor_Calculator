@@ -22,6 +22,7 @@ This project was built using:
 - MongoDB Atlas (Database)
 
 These are the main technologies I used to build and deploy this project.
+Note: The backend is hosted on Render's free tier, so it may take a few moments to start if it has been inactive
 
 ## Webpage & Code Snippets
 
