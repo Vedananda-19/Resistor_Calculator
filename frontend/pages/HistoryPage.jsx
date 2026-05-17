@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 function HistoryPage() {
     const [historyList, setHistoryList] = useState([]);
+    const [loading,setLoading] = useState(true)
     const navigate = useNavigate();
     async function getBands() {
         try {
@@ -16,6 +17,8 @@ function HistoryPage() {
             console.log(data);
         } catch (error) {
             console.log("An Error Occured : ", error);
+        } finally {
+            setLoading(false)
         }
     }
     useEffect(() => {
@@ -27,7 +30,9 @@ function HistoryPage() {
             <div className="themeBackground">
                 <div className="calculatorCard">
                     <h1>History</h1>
-                    {historyList.map((doc) => {
+                    {loading ? <h3 style={{padding:"100px 0px",color:"#00ADB5"}}>Loading...</h3> :
+                    !historyList ? <h3 style={{color:"#00ADB5"}}>No Bands are Saved Yet</h3> :
+                    historyList.map((doc) => {
                         const resistance = calcResistance(doc["bandColors"]);
                         const tolerance =
                             toleranceBandValues[doc["bandColors"]["band5"]];
